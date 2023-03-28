@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Encoder/Decoder</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .editable {
+            width: 100%;
+            height: 150px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 20px;
+            overflow: auto;
+            resize: none;
+            white-space: pre-wrap;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition-duration: 0.4s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>URL Encoder/Decoder</h1>
+        <div id="input" class="editable" contenteditable="true"></div>
+        <div class="button-container">
+            <button onclick="encodeText()">Encode</button>
+            <button onclick="decodeText()">Decode</button>
+        </div>
+        <div id="output" class="editable" contenteditable="false"></div>
+    </div>
+
+    <script>
+        const inputDiv = document.getElementById("input");
+        const outputDiv = document.getElementById("output");
+
+        function encodeText() {
+            const inputText = inputDiv.innerText;
+            const encodedText = encodeURIComponent(inputText);
+            outputDiv.innerText = encodedText;
+        }
+
+        function decodeText() {
+            const inputText = inputDiv.innerText;
+            const decodedText = decodeURIComponent(inputText);
+            outputDiv.innerText = decodedText;
+        }
+    </script>
+</body>
+</html>
